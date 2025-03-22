@@ -7,17 +7,13 @@ export const getAllQuestionnaires = async () => {
   return data;
 };
 
-export const getQuestionnaireById = async (questionnaireId) => {
-  const data = await Questionnaire.findById(questionnaireId);
+export const getQuestionnaireById = async (_id) => {
+  const data = await Questionnaire.findById(_id);
   return data;
 };
 
-export const updateQuestionnaire = async (
-  questionnaireId,
-  payload,
-  options = {},
-) => {
-  const query = { _id: questionnaireId };
+export const updateQuestionnaire = async (_id, payload, options = {}) => {
+  const query = { _id };
 
   const data = await Questionnaire.findOneAndUpdate(query, payload, {
     new: true,
@@ -29,8 +25,8 @@ export const updateQuestionnaire = async (
 
   return data.value;
 };
-export const deleteQuestionnaire = async (questionnaireId) => {
-  const query = { _id: questionnaireId };
+export const deleteQuestionnaire = async (_id) => {
+  const query = { _id };
 
   const data = await Questionnaire.findOneAndDelete(query);
   return data;

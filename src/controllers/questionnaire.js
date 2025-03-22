@@ -31,8 +31,8 @@ export const getAllQuestionnairesController = async (req, res, next) => {
 };
 
 export const getQuestionnaireByIdController = async (req, res, next) => {
-  const { questionnaireId } = req.params;
-  const data = await getQuestionnaireById({ questionnaireId });
+  const { _id } = req.params;
+  const data = await getQuestionnaireById({ _id });
 
   if (!data) {
     throw createHttpError(404, 'Questionnaire not found');
@@ -40,15 +40,15 @@ export const getQuestionnaireByIdController = async (req, res, next) => {
 
   res.json({
     status: 200,
-    message: `Successfully found questionnaire with id ${questionnaireId}`,
+    message: `Successfully found questionnaire with id ${_id}`,
     data,
   });
 };
 
 export const updateQuestionnaireController = async (req, res) => {
-  const { questionnaireId } = req.params;
+  const { _id } = req.params;
 
-  const data = await updateQuestionnaire(questionnaireId, {
+  const data = await updateQuestionnaire(_id, {
     ...req.body,
   });
 
@@ -64,9 +64,9 @@ export const updateQuestionnaireController = async (req, res) => {
 };
 
 export const deleteQuestionnaireController = async (req, res) => {
-  const { questionnaireId } = req.params;
+  const { _id } = req.params;
 
-  const data = await deleteQuestionnaire(questionnaireId);
+  const data = await deleteQuestionnaire(_id);
 
   if (!data) {
     throw createHttpError(404, 'Questionnaire not found');

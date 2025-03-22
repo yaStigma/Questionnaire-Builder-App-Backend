@@ -22,20 +22,20 @@ questionnaireRouter.post(
 questionnaireRouter.get('/', ctrlWrapper(getAllQuestionnairesController));
 
 questionnaireRouter.get(
-  '/:questionnaireId',
+  '/:_id',
   isValidId,
   ctrlWrapper(getQuestionnaireByIdController),
 );
 
 questionnaireRouter.put(
-  '/:questionnaireId',
+  '/:_id',
   isValidId,
   validateBody(questionnaireSchema),
   ctrlWrapper(updateQuestionnaireController),
 );
 
 questionnaireRouter.delete(
-  '/:questionnaireId',
+  '/:_id',
   isValidId,
   ctrlWrapper(deleteQuestionnaireController),
 );
