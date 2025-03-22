@@ -1,0 +1,29 @@
+{
+  "name": "questionnaire-builder-app-backend",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "start": "node ./src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaStigma/Questionnaire-Builder-App-Backend.git"
+  },
+  "keywords": [],
+  "author": "Tanya Yenakiieva <yastigma@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaStigma/Questionnaire-Builder-App-Backend/issues"
+  },
+  "homepage": "https://github.com/yaStigma/Questionnaire-Builder-App-Backend#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
+    "nodemon": "^3.1.9"
+  }
+}
