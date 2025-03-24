@@ -5,7 +5,7 @@ import { env } from './utils/env.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import questionnaireRouter from './routers/questionnaire.js';
-
+import answerRouter from './routers/answers.js';
 export const setupServer = () => {
   const app = express();
 
@@ -21,6 +21,7 @@ export const setupServer = () => {
   //   app.use(cookieParser());
 
   app.use('/questionnaire', questionnaireRouter);
+  app.use('/answer', answerRouter);
   //   app.use('/uploads', express.static(UPLOAD_DIR));
   //   app.use('/api-docs', swaggerDocs());
 
