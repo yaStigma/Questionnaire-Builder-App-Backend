@@ -6,7 +6,6 @@ import {
   deleteQuestionnaire,
 } from '../services/questionnaire.js';
 import createHttpError from 'http-errors';
-import { env } from '../utils/env.js';
 
 export const createQuestionnaireController = async (req, res, next) => {
   const data = await createQuestionnaire({
@@ -47,19 +46,16 @@ export const getQuestionnaireByIdController = async (req, res, next) => {
 
 export const updateQuestionnaireController = async (req, res) => {
   const { _id } = req.params;
+  const updatedData = await updateQuestionnaire(_id, req.body);
 
-  const data = await updateQuestionnaire(_id, {
-    ...req.body,
-  });
-
-  if (!data) {
+  if (!updatedData) {
     throw createHttpError(404, 'Questionnaire not found');
   }
 
   res.json({
     status: 200,
     message: 'Successfully patched a questionnaire!',
-    data,
+    data: updatedData,
   });
 };
 

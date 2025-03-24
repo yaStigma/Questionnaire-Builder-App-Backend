@@ -13,18 +13,13 @@ export const getQuestionnaireById = async (_id) => {
 };
 
 export const updateQuestionnaire = async (_id, payload, options = {}) => {
-  const query = { _id };
-
-  const data = await Questionnaire.findOneAndUpdate(query, payload, {
+  return Questionnaire.findOneAndUpdate({ _id }, payload, {
     new: true,
-    includeResultMetadata: true,
+    runValidators: true,
     ...options,
   });
-
-  if (!data || !data.value) return null;
-
-  return data.value;
 };
+
 export const deleteQuestionnaire = async (_id) => {
   const query = { _id };
 

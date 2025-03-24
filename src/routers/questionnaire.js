@@ -30,7 +30,6 @@ questionnaireRouter.get(
 questionnaireRouter.put(
   '/:_id',
   isValidId,
-  validateBody(questionnaireSchema),
   ctrlWrapper(updateQuestionnaireController),
 );
 
