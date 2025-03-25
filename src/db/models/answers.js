@@ -8,11 +8,11 @@ const answerSchema = new Schema(
     },
     answers: {
       type: Map,
-      of: Schema.Types.Mixed, // Может быть строкой или массивом строк
+      of: Schema.Types.Mixed,
       required: true,
     },
     timeSpent: {
-      type: Number, // Время в секундах
+      type: Number,
       required: true,
     },
     submissionDate: {

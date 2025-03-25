@@ -12,7 +12,6 @@ export const saveAnswer = async (payload) => {
 
   const answer = await Answer.create(payload);
 
-  // Увеличиваем счётчик `completions`
   questionnaire.completions += 1;
   await questionnaire.save();
 
